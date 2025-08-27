@@ -105,13 +105,6 @@ start-dev.bat
 docker-compose -f docker-compose.dev.yml up
 ```
 
-**Development mode features:**
-- ✅ Hot-reload enabled for both frontend and backend
-- ✅ Code changes reflect immediately without restart
-- ✅ Volume mounting for live code sync
-- ✅ Nodemon for backend auto-restart
-- ✅ React hot-reload for frontend
-
 #### Production Mode
 ```bash
 docker-compose up -d
