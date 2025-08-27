@@ -1,0 +1,88 @@
+version: '3.8'
+
+services:
+  mongodb:
+    image: mongo:6.0
+    container_name: lonca-mongodb-dev
+    restart: unless-stopped
+    ports:
+      - "27017:27017"
+    environment:
+      MONGO_INITDB_DATABASE: lonca
+    volumes:
+      - mongodb_data_dev:/data/db
+    networks:
+      - lonca-network-dev
+
+  redis:
+    image: redis:7-alpine
+    container_name: lonca-redis-dev
+    restart: unless-stopped
+    ports:
+      - "6380:6379"
+    volumes:
+      - redis_data_dev:/data
+    networks:
+      - lonca-network-dev
+
+  backend:
+    image: node:18-alpine
+    container_name: lonca-backend-dev
+    working_dir: /app
+    command: sh -c "npm install && npm run dev"
+    restart: unless-stopped
+    ports:
+      - "3002:3002"
+    environment:
+      NODE_ENV: development
+      PORT: 3002
+      MONGODB_URI: mongodb://mongodb:27017/lonca
+      REDIS_HOST: redis
+      REDIS_PORT: 6379
+      JWT_SECRET: your-secret-key-here
+      JWT_EXPIRE: 7d
+      CORS_ORIGIN: http://localhost:3000,http://127.0.0.1:3000
+    depends_on:
+      - mongodb
+      - redis
+    networks:
+      - lonca-network-dev
+    volumes:
+      # Source kodunu mount et - değişiklikler anında yansır
+      - ./backend:/app
+      # node_modules'ı container içinde tut
+      - backend_node_modules:/app/node_modules
+
+  frontend:
+    image: node:18-alpine
+    container_name: lonca-frontend-dev
+    working_dir: /app
+    command: sh -c "npm install && npm start"
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    environment:
+      REACT_APP_API_URL: http://localhost:3002/api
+      CHOKIDAR_USEPOLLING: "true"
+      WATCHPACK_POLLING: "true"
+    depends_on:
+      - backend
+    networks:
+      - lonca-network-dev
+    stdin_open: true
+    tty: true
+    volumes:
+      # Source kodunu mount et - değişiklikler anında yansır
+      - ./frontend:/app
+      # node_modules'ı container içinde tut
+      - frontend_node_modules:/app/node_modules
+
+networks:
+  lonca-network-dev:
+    driver: bridge
+
+volumes:
+  mongodb_data_dev:
+  redis_data_dev:
+  backend_node_modules:
+  frontend_node_modules:

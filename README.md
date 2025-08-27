@@ -76,8 +76,43 @@ API_URL=http://localhost:3002
 
 ### Running with Docker
 
+#### Development Mode (with Hot-Reload)
+```bash
+# Windows
+start-dev.bat
+
+# Linux/Mac
+./start-dev.sh
+
+# Or using docker-compose directly
+docker-compose -f docker-compose.dev.yml up
+```
+
+**Development mode features:**
+- ✅ Hot-reload enabled for both frontend and backend
+- ✅ Code changes reflect immediately without restart
+- ✅ Volume mounting for live code sync
+- ✅ Nodemon for backend auto-restart
+- ✅ React hot-reload for frontend
+
+#### Production Mode
 ```bash
 docker-compose up -d
+```
+
+#### Using Makefile (Recommended)
+```bash
+# Start development with hot-reload
+make dev
+
+# Stop development
+make dev-down
+
+# View logs
+make dev-logs
+
+# Restart development
+make restart
 ```
 
 ### Running Locally

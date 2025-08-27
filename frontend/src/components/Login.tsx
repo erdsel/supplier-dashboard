@@ -59,7 +59,7 @@ const Login: React.FC = () => {
   return (
     <Box sx={{
       minHeight: '100vh',
-      background: 'linear-gradient(135deg, #ffeff6 0%, #F8BBD9 50%, #E8B4E3 100%)',
+      background: 'linear-gradient(135deg, #532d3c 0%, #3a1f2a 100%)',
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center',
@@ -69,37 +69,46 @@ const Login: React.FC = () => {
         <Paper elevation={12} sx={{ 
           padding: 5, 
           width: '100%',
-          background: 'linear-gradient(135deg, rgba(255,255,255,0.95) 0%, rgba(255,239,246,0.9) 100%)',
+          background: 'linear-gradient(135deg, rgba(107, 63, 79, 0.95) 0%, rgba(83, 45, 60, 0.9) 100%)',
           backdropFilter: 'blur(20px)',
-          borderRadius: 4,
+          borderRadius: 0, // Dikdörtgen form
           border: '1px solid rgba(232, 180, 227, 0.2)',
-          boxShadow: '0 20px 40px rgba(232, 180, 227, 0.4)'
+          boxShadow: '0 20px 40px rgba(0, 0, 0, 0.5)'
         }}>
           <Box sx={{ textAlign: 'center', mb: 4 }}>
             <Typography component="h1" variant="h3" sx={{ 
               fontWeight: 700,
-              color: 'primary.main',
+              color: '#FFFFFF',
               mb: 2,
-              fontFamily: '"Inter", sans-serif',
+              fontFamily: '"Roboto Flex", sans-serif, "Nantes", "Times New Roman", Times, serif',
               letterSpacing: '0.02em'
             }}>
               LONCA.CO
             </Typography>
             <Typography variant="h6" sx={{ 
-              color: 'text.secondary',
+              color: '#F5E6F3',
               fontWeight: 500
             }}>
               Vendor Dashboard
             </Typography>
             <Typography variant="body1" sx={{ 
-              color: 'text.secondary',
+              color: '#F5E6F3',
               mt: 1
             }}>
               Satış performansınızı analiz edin
             </Typography>
           </Box>
 
-          <Tabs value={tab} onChange={(e, newValue) => setTab(newValue)} sx={{ mb: 3 }}>
+          <Tabs 
+            value={tab} 
+            onChange={(e, newValue) => setTab(newValue)} 
+            sx={{ 
+              mb: 3,
+              '& .MuiTab-root': { color: '#F5E6F3' },
+              '& .Mui-selected': { color: '#FFFFFF' },
+              '& .MuiTabs-indicator': { backgroundColor: '#E8B4E3' }
+            }}
+          >
             <Tab label="İsimle Giriş" />
             <Tab label="Email ile Giriş" />
           </Tabs>
@@ -120,12 +129,32 @@ const Login: React.FC = () => {
                 value={name}
                 onChange={(e) => setName(e.target.value)}
                 disabled={loading}
+                sx={{
+                  '& .MuiInputLabel-root': { color: '#F5E6F3' },
+                  '& .MuiInputLabel-root.Mui-focused': { color: '#FFFFFF' },
+                  '& .MuiOutlinedInput-root': {
+                    color: '#FFFFFF',
+                    '& fieldset': { borderColor: 'rgba(245, 230, 243, 0.3)' },
+                    '&:hover fieldset': { borderColor: '#F5E6F3' },
+                    '&.Mui-focused fieldset': { borderColor: '#E8B4E3' },
+                  },
+                  '& .MuiOutlinedInput-input': { color: '#FFFFFF' },
+                }}
               />
               <Button
                 type="submit"
                 fullWidth
                 variant="contained"
-                sx={{ mt: 3, mb: 2 }}
+                sx={{ 
+                  mt: 3, 
+                  mb: 2,
+                  backgroundColor: '#E8B4E3',
+                  color: '#532d3c',
+                  fontWeight: 600,
+                  '&:hover': {
+                    backgroundColor: '#D897D1',
+                  }
+                }}
                 disabled={loading || !name}
               >
                 {loading ? 'Giriş yapılıyor...' : 'Giriş Yap'}
@@ -145,6 +174,17 @@ const Login: React.FC = () => {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 disabled={loading}
+                sx={{
+                  '& .MuiInputLabel-root': { color: '#F5E6F3' },
+                  '& .MuiInputLabel-root.Mui-focused': { color: '#FFFFFF' },
+                  '& .MuiOutlinedInput-root': {
+                    color: '#FFFFFF',
+                    '& fieldset': { borderColor: 'rgba(245, 230, 243, 0.3)' },
+                    '&:hover fieldset': { borderColor: '#F5E6F3' },
+                    '&.Mui-focused fieldset': { borderColor: '#E8B4E3' },
+                  },
+                  '& .MuiOutlinedInput-input': { color: '#FFFFFF' },
+                }}
               />
               <TextField
                 margin="normal"
@@ -158,12 +198,32 @@ const Login: React.FC = () => {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 disabled={loading}
+                sx={{
+                  '& .MuiInputLabel-root': { color: '#F5E6F3' },
+                  '& .MuiInputLabel-root.Mui-focused': { color: '#FFFFFF' },
+                  '& .MuiOutlinedInput-root': {
+                    color: '#FFFFFF',
+                    '& fieldset': { borderColor: 'rgba(245, 230, 243, 0.3)' },
+                    '&:hover fieldset': { borderColor: '#F5E6F3' },
+                    '&.Mui-focused fieldset': { borderColor: '#E8B4E3' },
+                  },
+                  '& .MuiOutlinedInput-input': { color: '#FFFFFF' },
+                }}
               />
               <Button
                 type="submit"
                 fullWidth
                 variant="contained"
-                sx={{ mt: 3, mb: 2 }}
+                sx={{ 
+                  mt: 3, 
+                  mb: 2,
+                  backgroundColor: '#E8B4E3',
+                  color: '#532d3c',
+                  fontWeight: 600,
+                  '&:hover': {
+                    backgroundColor: '#D897D1',
+                  }
+                }}
                 disabled={loading || !email || !password}
               >
                 {loading ? 'Giriş yapılıyor...' : 'Giriş Yap'}

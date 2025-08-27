@@ -105,14 +105,14 @@ const Dashboard: React.FC = () => {
 
   // Chart colors
   const chartColors = {
-    primary: '#E8B4E3',
+    primary: '#532D3C',
     secondary: '#B39DDB', 
     accent: '#F8BBD9',
     success: '#81C784',
     warning: '#FFB74D',
     error: '#E57373',
     info: '#64B5F6',
-    gradient: ['#E8B4E3', '#B39DDB', '#F8BBD9', '#CE93D8', '#AB47BC', '#9C27B0']
+    gradient: ['#532D3C', '#B39DDB', '#F8BBD9', '#CE93D8', '#AB47BC', '#9C27B0']
   };
 
   // Prepare pie chart data for monthly sales
@@ -163,7 +163,7 @@ const Dashboard: React.FC = () => {
             }}>
               <Typography variant="h3" gutterBottom sx={{ 
                 fontWeight: 700, 
-                color: 'primary.main',
+                color: '#fff',
                 mb: 1
               }}>
                 Vendor Dashboard
@@ -499,7 +499,7 @@ const Dashboard: React.FC = () => {
                 mb: 3,
                 textAlign: 'center'
               }}>
-                📊 Aylık Sipariş Analizi
+                 Aylık Sipariş Analizi
               </Typography>
               {monthlyLoading ? (
                 <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: 350 }}>
