@@ -4,14 +4,14 @@ A comprehensive vendor analytics dashboard for e-commerce platforms built with R
 
 ## Features
 
-- 📊 Real-time analytics dashboard
-- 📈 Monthly sales tracking
-- 🛍️ Product performance metrics
-- 💰 Revenue tracking
-- 🔐 JWT authentication
-- 📱 Responsive design
-- 🚀 Redis caching for performance
-- 📖 Swagger API documentation
+-  Real-time analytics dashboard
+-  Monthly sales tracking
+-  Product performance metrics
+-  Revenue tracking
+-  JWT authentication
+-  Responsive design
+-  Redis caching for performance
+-  Swagger API documentation
 
 ## Tech Stack
 
@@ -146,17 +146,4 @@ npm start
 - `GET /api/analytics/date-range/:vendorId` - Date range analytics
 - `DELETE /api/analytics/cache/:vendorId` - Clear cache (Admin only)
 
-## Available Vendors
 
-- Robin
-- Dilvin
-- Mizalle
-- Setre
-- Xint
-- Adze
-- Allday
-- Tommy Life
-
-## License
-
-MIT
