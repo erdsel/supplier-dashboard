@@ -1,6 +1,6 @@
 # Lonca Vendor Dashboard
 
-A comprehensive vendor analytics dashboard for e-commerce platforms built with React, Node.js, and MongoDB.
+A vendor analytics dashboard for e-commerce platforms built with React, Node.js, and MongoDB.
 
 ## Features
 
@@ -29,9 +29,26 @@ A comprehensive vendor analytics dashboard for e-commerce platforms built with R
 - Recharts for data visualization
 - Axios for API calls
 
-## Getting Started
+### System Architecture
+![System Architecture](ss/system.png)
 
-### Prerequisites
+### Use-Case Diagram
+
+![Use Case](ss/casediagram.png)
+### Main screen and table/graph visuals:
+
+![Dashboard Hero](ss/1.png)
+![Cards & Charts](ss/2.png)
+![Product Table](ss/3.png)
+![Monthly Analysis](ss/4.png)
+
+Animations:
+
+![Robin](ss/chrome_VnvDxgpvt5.gif)
+![Dilvin](ss/chrome_kLZEBJsDn2.gif)
+
+
+### Proje Koşulları
 
 - Node.js (v18 or higher)
 - MongoDB
